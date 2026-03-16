@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 # plotting
 
+
 def plot_signal_with_importance_background(
     x,
     attr_map,
@@ -46,7 +47,7 @@ def plot_signal_with_importance_background(
     )
 
     # сам ряд
-    ax.plot(t, x, linewidth=2, color='white')
+    ax.plot(t, x, linewidth=2, color="white")
 
     ax.set_title(title)
     ax.set_xlabel("Time")

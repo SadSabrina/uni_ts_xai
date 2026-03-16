@@ -1,5 +1,6 @@
 import torch
 import numpy as np
+from tqdm import tqdm
 
 def vanilla_gradients(model, input_tensor, target_class):
     # Создаем копию для градиентов
@@ -8,7 +9,6 @@ def vanilla_gradients(model, input_tensor, target_class):
 
     output = model(input_copy)
     target = output[0, target_class]
-
     model.zero_grad()
     target.backward() # делаем бэкпроп
 
@@ -21,7 +21,7 @@ def smoothgrad(model, input_tensor, target_class, n_samples=50, noise_level=0.15
 
     smooth_grad = torch.zeros_like(input_tensor) # заглушка для карты, в которую будем складывать шум
 
-    for i in range(n_samples):
+    for _ in tqdm(range(n_samples), desc="Smoothgrad progress"):
 
         noise = torch.randn_like(input_tensor) * noise_level # шум для входной картинки
         noisy_input = (input_tensor + noise).clone().detach()
