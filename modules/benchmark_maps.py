@@ -1,9 +1,7 @@
 from tqdm.notebook import tqdm
 import numpy as np
 import torch
-import torch.nn.functional as F
-import matplotlib.pyplot as plt
-from hw3_research.modules.metrics import curve_auc, insertion_metric_1d, deletion_metric_1d, prepare_saliency_1d
+from uni_ts_xai.modules.metrics import curve_auc, insertion_metric_1d, deletion_metric_1d, prepare_saliency_1d
 from TSInterpret.InterpretabilityModels.Saliency.TSR import TSR
 
 
